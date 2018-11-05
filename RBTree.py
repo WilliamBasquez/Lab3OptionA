@@ -1,7 +1,9 @@
 # RBTNode class - represents a node in a red-black tree
-from ex1 import pretty_tree
+#I implemented the Red-Black Tree file from ZyBook, I only took away the deletion methods as they are not necessary, but the rest
+#of the code is still in this file
 class RBTNode:
     def __init__(self, key, arr, parent, is_red = False, left = None, right = None):
+        #The parameter 'arr' will become the node's list of vectors
         self.key = key
         self.vectors = arr
         self.left = left
@@ -107,6 +109,7 @@ class RedBlackTree:
         self.insert_node(new_node)
         
     def insert_node(self, node):
+        #This function takes a node and compares the order of the first letter in the new word with the current node's key
         # Begin with normal BST insertion
         if self.root is None:
             # Special case for root
@@ -286,9 +289,3 @@ class RedBlackTree:
             self.rotate_left(sibling)
             return True
         return False # not case 6
-        
-    # Overloading the __str__() operator to create a nicely-formatted text representation of
-    # the tree. Derived from Joohwan Oh at: 
-    #    https://github.com/joowani/binarytree/blob/master/binarytree/__init__.py
-    def __str__(self):
-        return pretty_tree(self)
