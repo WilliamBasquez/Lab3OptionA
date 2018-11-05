@@ -1,7 +1,11 @@
-from ex1 import pretty_tree
+#I used the implementation for AVL trees from ZyBook, just modified the insertion method to take a word as key
+#as well as a list offloating point numbers as vectors; I also took away the deletion functions as these were
+#not required on the lab.
+#I implemented the function 'get_height' from the Red-Black Tree file
 
 class Node:
     def __init__(self, key, arr):
+	#the 'arr' parameter will become the node's vectors
         self.key = key
         self.vectors = arr
         self.parent = None
@@ -137,6 +141,9 @@ class AVLTree:
 		return 1 + max(left_height, right_height)
 
 	def insert(self, node):
+		#this function takes in a node and in order to insert in the right place
+		#it compares the Unicode code point of the first letter on the new word to the one
+		#on the current node (if one exists)
 		if self.root is None:
 			self.root = node
 			node.parent = None
@@ -145,9 +152,9 @@ class AVLTree:
 			while current_node is not None:
 				if ord(node.key[0]) < ord(current_node.key[0]):
 					if current_node.left is None:
-							current_node.left = node
-							node.parent = current_node
-							current_node = None
+						current_node.left = node
+						node.parent = current_node
+						current_node = None
 					else:
 						current_node = current_node.left
 				else:
