@@ -179,9 +179,3 @@ class AVLTree:
 				current_node = current_node.right
 			else:
 				current_node = current_node.left
-
-	# Overloading the __str__() operator to create a nicely-formatted text representation of
-    # the tree. Derived from Joohwan Oh at:
-    #    https://github.com/joowani/binarytree/blob/master/binarytree/__init__.py
-	def __str__(self):
-		return pretty_tree(self)
