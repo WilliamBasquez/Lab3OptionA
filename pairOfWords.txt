@@ -1,0 +1,5 @@
+federer	tennis
+barley	oat
+harvard	utep
+harvard	ant
+ability	things
